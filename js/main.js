@@ -157,7 +157,7 @@ if(filename == "login.php" || filename == "register.php") {
     let styles = window.getComputedStyle(element,':after').getPropertyValue('content');
     console.log(styles);
     let top_badge = styles['display'];
-    let toggleChecker = [true, true, true, true, true, true, true, true, true, true];
+    let toggleChecker = [true, true, true, true, true, true, true, true, true, true, true, true];
     let stars = document.querySelectorAll('.stars');
     let plus = document.querySelectorAll('.fa-plus');
     let titleCard = document.querySelectorAll('.showcard-title');
@@ -210,7 +210,9 @@ if(filename == "login.php" || filename == "register.php") {
                         gsap.to(titleCard[i], 0, {display:"none"});
                         gsap.to(synopsis[i], 0, {display:"block"});
                         gsap.to(buyBtn[i], 0, {display:"block"});
-                        
+                        if (i == 11 && window.matchMedia("(max-width: 1230px)").matches) {
+                            gsap.to(`#show_${[i]}`, 1, {height:"15rem"});
+                        }
                 } else {
                         toggleChecker[i] = true;
                         document.documentElement.style.setProperty(`--${i}`, "unset");
@@ -220,29 +222,32 @@ if(filename == "login.php" || filename == "register.php") {
                         gsap.fromTo(titleCard[i], {display: "block", opacity: 0}, {opacity: 1, duration: 1});
                         gsap.to(synopsis[i], 0, {display:"none"});
                         gsap.to(buyBtn[i], 0, {display:"none"});
+                        if (i == 11 && window.matchMedia("(max-width: 1230px)").matches) {
+                            gsap.to(`#show_${[i]}`, 1, {height:"auto"});
+                        }
                         
                 }
             });
         }
 
-        let toggleLike = false;
+        let toggleLike = [false, false, false, false, false, false, false, false, false, false, false];
         let like_scope = document.querySelectorAll('.like_scope');
 
         for(let i = 0; i < resumeBtn.length; i++) {
             like_scope[i].addEventListener("click", (e) => {
                 e.stopPropagation();
-                    if(toggleLike == false && i == 0) {
+                    if(toggleLike[i] == false && i == 0) {
                     document.documentElement.style.setProperty("--dynamic-color", "red");
-                    toggleLike = true;
+                    toggleLike[i] = true;
                     } else if(i == 0) {
                         document.documentElement.style.setProperty("--dynamic-color", "black");
-                        toggleLike = false;
-                    } else if(toggleLike == false) {
+                        toggleLike[i] = false;
+                    } else if(toggleLike[i] == false) {
                         document.documentElement.style.setProperty(`--${i}${i}`, "red");
-                        toggleLike = true;
+                        toggleLike[i] = true;
                     } else {
                         document.documentElement.style.setProperty(`--${i}${i}`, "black");
-                        toggleLike = false;
+                        toggleLike[i] = false;
                     }
             })
             

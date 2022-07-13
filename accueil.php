@@ -44,7 +44,7 @@
         <!-- Affichage des films -->
         <div id="show">
             
-        <?php for($i = 0; $i < 10; $i++): ?>
+        <?php for($i = 0; $i < 12; $i++): ?>
             <?php if($i == 0): ?>
                 <div id="top_show" class="like_scope" style="background-image: url(<?= $shows[$i]->image; ?>); background-size: cover; background-position: center;">
                     <div class="top_showcard-content">
@@ -69,17 +69,11 @@
             <?php endif; ?>
         <?php endfor; ?>
         </div>
-                    
-                    <div id="show_2">
-                        
-                    </div>
-                    <div id="show_3">
-                        
-                    </div>
-                    <div id="show_4">
-                        
-                    </div>
     </main>
+
+    <footer>
+        <p>Electra 2022 - Tout droit réservé</p>
+    </footer>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
                 <script src="./js/main.js"></script>
 </body>

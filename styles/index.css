@@ -14,12 +14,12 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1D302;
+  background: rgba(29, 26, 8, 0.7);
   border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(29, 26, 8, 0.7);
+  background: #F1D302;
   border-radius: 100vw;
 }
 
@@ -34,6 +34,8 @@ body {
   --7: unset;
   --8: unset;
   --9: unset;
+  --10: unset;
+  --11: unset;
   --dynamic-color: black;
   --11: black;
   --22: black;
@@ -44,6 +46,8 @@ body {
   --77: black;
   --88: black;
   --99: black;
+  --1010: black;
+  --1111: black;
 }
 
 .wrapper {
@@ -889,11 +893,55 @@ input[type=text], input[type=email] {
   color: var(--99);
   clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
 }
+#vertical_display #show #show_10 {
+  grid-area: 4/1/5/4;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  padding: 8rem 0 0 0;
+  position: relative;
+}
+#vertical_display #show #show_10:before {
+  cursor: pointer;
+  font-family: FontAwesome;
+  visibility: var(--10);
+  content: "\f004";
+  position: absolute;
+  z-index: 1;
+  font-size: 1rem;
+  background-color: #F1D302;
+  padding: 0.3rem 0.3rem;
+  right: 0.8rem;
+  color: var(--1010);
+  clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+}
+#vertical_display #show #show_11 {
+  grid-area: 4/4/5/7;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  padding: 8rem 0 0 0;
+  position: relative;
+}
+#vertical_display #show #show_11:before {
+  cursor: pointer;
+  font-family: FontAwesome;
+  visibility: var(--11);
+  content: "\f004";
+  position: absolute;
+  z-index: 1;
+  font-size: 1rem;
+  background-color: #F1D302;
+  padding: 0.3rem 0.3rem;
+  right: 0.8rem;
+  color: var(--1111);
+  clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+}
 @media (max-width: 1230px) {
   #vertical_display #show {
     grid-template-rows: repeat(1, 1fr);
     grid-template-columns: repeat(7, 1fr);
-    padding: 0 0 0 5rem;
+    padding: 0 0 3rem 5rem;
   }
   #vertical_display #show #top_show {
     grid-area: 1/1/3/7;
@@ -953,13 +1001,13 @@ input[type=text], input[type=email] {
     position: relative;
     background-color: white;
     overflow: hidden;
-    padding: 5rem 0 0 0;
+    padding: 8rem 0 0 0;
     position: relative;
   }
   #vertical_display #show #show_1:before {
     cursor: pointer;
     font-family: FontAwesome;
-    visibility: unset;
+    visibility: var(--1);
     content: "\f004";
     position: absolute;
     z-index: 1;
@@ -967,8 +1015,11 @@ input[type=text], input[type=email] {
     background-color: #F1D302;
     padding: 0.3rem 0.3rem;
     right: 1rem;
-    color: rgb(0, 0, 0);
+    color: var(--11);
     clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_1:before {
+    top: 9rem;
   }
   #vertical_display #show #show_1 .showcard-content {
     background-color: rgba(0, 0, 0, 0.52);
@@ -1010,13 +1061,13 @@ input[type=text], input[type=email] {
     position: relative;
     background-color: white;
     overflow: hidden;
-    padding: 5rem 0 0 0;
+    padding: 8rem 0 0 0;
     position: relative;
   }
   #vertical_display #show #show_2:before {
     cursor: pointer;
     font-family: FontAwesome;
-    visibility: unset;
+    visibility: var(--2);
     content: "\f004";
     position: absolute;
     z-index: 1;
@@ -1024,8 +1075,11 @@ input[type=text], input[type=email] {
     background-color: #F1D302;
     padding: 0.3rem 0.3rem;
     right: 1rem;
-    color: rgb(0, 0, 0);
+    color: var(--22);
     clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_2:before {
+    top: 9rem;
   }
   #vertical_display #show #show_2 .showcard-content {
     background-color: rgba(0, 0, 0, 0.52);
@@ -1068,7 +1122,7 @@ input[type=text], input[type=email] {
   #vertical_display #show #show_3:before {
     cursor: pointer;
     font-family: FontAwesome;
-    visibility: unset;
+    visibility: var(--3);
     content: "\f004";
     position: absolute;
     z-index: 1;
@@ -1076,8 +1130,11 @@ input[type=text], input[type=email] {
     background-color: #F1D302;
     padding: 0.3rem 0.3rem;
     right: 1rem;
-    color: rgb(0, 0, 0);
+    color: var(--33);
     clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_3:before {
+    top: 9rem;
   }
   #vertical_display #show #show_3 .showcard-content {
     background-color: rgba(0, 0, 0, 0.52);
@@ -1120,7 +1177,7 @@ input[type=text], input[type=email] {
   #vertical_display #show #show_4:before {
     cursor: pointer;
     font-family: FontAwesome;
-    visibility: unset;
+    visibility: var(--4);
     content: "\f004";
     position: absolute;
     z-index: 1;
@@ -1128,8 +1185,11 @@ input[type=text], input[type=email] {
     background-color: #F1D302;
     padding: 0.3rem 0.3rem;
     right: 1rem;
-    color: rgb(0, 0, 0);
+    color: var(--44);
     clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_4:before {
+    top: 9rem;
   }
   #vertical_display #show #show_4 .showcard-content {
     background-color: rgba(0, 0, 0, 0.52);
@@ -1172,7 +1232,7 @@ input[type=text], input[type=email] {
   #vertical_display #show #show_5:before {
     cursor: pointer;
     font-family: FontAwesome;
-    visibility: unset;
+    visibility: var(--5);
     content: "\f004";
     position: absolute;
     z-index: 1;
@@ -1180,8 +1240,11 @@ input[type=text], input[type=email] {
     background-color: #F1D302;
     padding: 0.3rem 0.3rem;
     right: 1rem;
-    color: rgb(0, 0, 0);
+    color: var(--55);
     clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_5:before {
+    top: 9rem;
   }
   #vertical_display #show #show_5 .showcard-content {
     background-color: rgba(0, 0, 0, 0.52);
@@ -1224,7 +1287,7 @@ input[type=text], input[type=email] {
   #vertical_display #show #show_6:before {
     cursor: pointer;
     font-family: FontAwesome;
-    visibility: unset;
+    visibility: var(--6);
     content: "\f004";
     position: absolute;
     z-index: 1;
@@ -1232,8 +1295,11 @@ input[type=text], input[type=email] {
     background-color: #F1D302;
     padding: 0.3rem 0.3rem;
     right: 1rem;
-    color: rgb(0, 0, 0);
+    color: var(--66);
     clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_6:before {
+    top: 9rem;
   }
   #vertical_display #show #show_6 .showcard-content {
     background-color: rgba(0, 0, 0, 0.52);
@@ -1276,7 +1342,7 @@ input[type=text], input[type=email] {
   #vertical_display #show #show_7:before {
     cursor: pointer;
     font-family: FontAwesome;
-    visibility: unset;
+    visibility: var(--7);
     content: "\f004";
     position: absolute;
     z-index: 1;
@@ -1284,8 +1350,11 @@ input[type=text], input[type=email] {
     background-color: #F1D302;
     padding: 0.3rem 0.3rem;
     right: 1rem;
-    color: rgb(0, 0, 0);
+    color: var(--77);
     clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_7:before {
+    top: 9rem;
   }
   #vertical_display #show #show_7 .showcard-content {
     background-color: rgba(0, 0, 0, 0.52);
@@ -1328,7 +1397,7 @@ input[type=text], input[type=email] {
   #vertical_display #show #show_8:before {
     cursor: pointer;
     font-family: FontAwesome;
-    visibility: unset;
+    visibility: var(--8);
     content: "\f004";
     position: absolute;
     z-index: 1;
@@ -1336,8 +1405,11 @@ input[type=text], input[type=email] {
     background-color: #F1D302;
     padding: 0.3rem 0.3rem;
     right: 1rem;
-    color: rgb(0, 0, 0);
+    color: var(--88);
     clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_8:before {
+    top: 9rem;
   }
   #vertical_display #show #show_8 .showcard-content {
     background-color: rgba(0, 0, 0, 0.52);
@@ -1380,7 +1452,7 @@ input[type=text], input[type=email] {
   #vertical_display #show #show_9:before {
     cursor: pointer;
     font-family: FontAwesome;
-    visibility: unset;
+    visibility: var(--9);
     content: "\f004";
     position: absolute;
     z-index: 1;
@@ -1388,8 +1460,11 @@ input[type=text], input[type=email] {
     background-color: #F1D302;
     padding: 0.3rem 0.3rem;
     right: 1rem;
-    color: rgb(0, 0, 0);
+    color: var(--99);
     clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_9:before {
+    top: 9rem;
   }
   #vertical_display #show #show_9 .showcard-content {
     background-color: rgba(0, 0, 0, 0.52);
@@ -1426,8 +1501,127 @@ input[type=text], input[type=email] {
     margin: 0;
     width: 70%;
   }
-  #vertical_display #show .showcard-title {
+  #vertical_display #show #show_10 {
+    grid-area: 8/4/9/7;
+  }
+  #vertical_display #show #show_10:before {
+    cursor: pointer;
+    font-family: FontAwesome;
+    visibility: var(--10);
+    content: "\f004";
+    position: absolute;
+    z-index: 1;
+    font-size: 1rem;
+    background-color: #F1D302;
+    padding: 0.3rem 0.3rem;
+    right: 1rem;
+    color: var(--1010);
+    clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_10:before {
+    top: 9rem;
+  }
+  #vertical_display #show #show_10 .showcard-content {
+    background-color: rgba(0, 0, 0, 0.52);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    padding: 2rem 0 0 1rem;
+    margin: 1rem 0;
+  }
+  #vertical_display #show #show_10 .showcard-content .stars {
+    width: 100%;
+    display: flex;
+    font-size: 1.5rem;
+    color: #F1D302;
+    gap: 0.1rem;
+  }
+  #vertical_display #show #show_10 .showcard-content .resume_btn {
+    cursor: pointer;
+    font-family: "Bebas Neue", cursive;
+    width: fit-content;
+    font-size: 1rem;
+    padding: 0.1rem 0.2rem;
+    background-color: #F1D302;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+  #vertical_display #show #show_10 .showcard-content .showcard-title {
+    position: absolute;
+    top: 0;
+    color: #F1D302;
+    font-size: 1.6rem;
+    margin: 0;
+    width: 70%;
+  }
+  #vertical_display #show #show_11 {
+    grid-area: 9/1/10/4;
+  }
+  #vertical_display #show #show_11:before {
+    cursor: pointer;
+    font-family: FontAwesome;
+    visibility: var(--11);
+    content: "\f004";
+    position: absolute;
+    z-index: 1;
+    font-size: 1rem;
+    background-color: #F1D302;
+    padding: 0.3rem 0.3rem;
+    right: 1rem;
+    color: var(--1111);
+    clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+  }
+  #vertical_display #show #show_11:before {
+    top: 9rem;
+  }
+  #vertical_display #show #show_11 .showcard-content {
+    background-color: rgba(0, 0, 0, 0.52);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    padding: 2rem 0 0 1rem;
+    margin: 1rem 0;
+  }
+  #vertical_display #show #show_11 .showcard-content .stars {
+    width: 100%;
+    display: flex;
+    font-size: 1.5rem;
+    color: #F1D302;
+    gap: 0.1rem;
+  }
+  #vertical_display #show #show_11 .showcard-content .resume_btn {
+    cursor: pointer;
+    font-family: "Bebas Neue", cursive;
+    width: fit-content;
+    font-size: 1rem;
+    padding: 0.1rem 0.2rem;
+    background-color: #F1D302;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+  #vertical_display #show #show_11 .showcard-content .showcard-title {
+    position: absolute;
+    top: 0;
+    color: #F1D302;
+    font-size: 1.6rem;
+    margin: 0;
+    width: 70%;
+  }
+  #vertical_display #show .showcard-content .showcard-title {
     width: 60%;
+  }
+  #vertical_display #show .showcard-content .buy_btn {
+    bottom: 4rem;
+    left: 10rem;
+    font-size: 1.5vw;
+  }
+  #vertical_display #show .showcard-content .synopsis {
+    font-size: 1.5vw;
+    top: 3rem;
   }
 }
 #vertical_display .showcard-content {
@@ -1487,6 +1681,15 @@ input[type=text], input[type=email] {
   position: absolute;
   bottom: 2.7rem;
   left: 4.6rem;
+}
+
+footer {
+  height: 5rem;
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  color: #F1D302;
+  font-size: 1.2vw;
 }
 
 /*# sourceMappingURL=index.css.map */
