@@ -38,9 +38,8 @@
 
     <main id="vertical_display">
         <div id="input_container">
-            <input type="text" id="search_bar">
+            <input type="text" id="search_bar" name="search">
         </div>
-        
         <!-- Affichage des films -->
         <div id="show">
             

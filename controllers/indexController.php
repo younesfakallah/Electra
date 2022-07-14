@@ -15,4 +15,7 @@
     } else if(isset($_GET['email'])) {
         $userMail = $db->query('SELECT id FROM elec_users WHERE email = ?', [$_GET['email']])->fetch();
         echo json_encode($userMail);
+    } else if(isset($_GET['search'])) {
+        $searchResult = $db->query('SELECT name, buy, image, synopsis FROM elec_shows WHERE TRIM(name) = ?', [$_GET['search']])->fetch();
+        echo json_encode($searchResult);
     }

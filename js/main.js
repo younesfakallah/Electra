@@ -148,26 +148,60 @@ if(filename == "login.php" || filename == "register.php") {
             }
             })
 } else {
-    let resumeBtn = document.querySelectorAll('.resume_btn');
+    const searchValue = document.getElementById('search_bar');
+    const showContainer = document.getElementById('show');
 
-    let nodes = document.getElementById('show').childNodes;
-    console.log(nodes)
-    // Cibler les pseudo element coeur afin de pouvoir changer leurs couleurs au clique
-    let element = document.getElementById('top_show');
-    let styles = window.getComputedStyle(element,':after').getPropertyValue('content');
-    console.log(styles);
-    let top_badge = styles['display'];
-    let toggleChecker = [true, true, true, true, true, true, true, true, true, true, true, true];
-    let stars = document.querySelectorAll('.stars');
-    let plus = document.querySelectorAll('.fa-plus');
-    let titleCard = document.querySelectorAll('.showcard-title');
-    let buyBtn = document.querySelectorAll('.buy_btn');
-    let synopsis = document.querySelectorAll('.synopsis');
+    const checkexistShow = () => {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                    // Je parse les données recu pour les transformer de chaines de charactères
+                    // en objets ce qui me permettra d'itérer decu
+                    let showResult = JSON.parse(this.responseText);
+                    console.log(showResult.name.trim());
+                    showContainer.innerHTML = `<div id="top_show" class="like_scope" style="background-image: url(${showResult.image.trim()}); background-size: cover; background-position: center;">
+                                                    <div class="top_showcard-content">
+                                                        <p class="showcard-title">${showResult.name.trim()}</p>
+                                                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                                        <button class="top_resume_btn resume_btn">résumé | <i class="fa-solid fa-plus"></i></button>
+                                                        <p class="synopsis">${showResult.synopsis.trim()}</p>
+                                                        <a target="_BLANK" href="${showResult.buy.trim()}" class="buy_btn">Achetez <i class="fa-solid fa-cart-shopping"></i></a>
+                                                    </div>
+                                                </div>`
+                    
+                    allowAsync()
+                }
+        }
+            xmlhttp.open("GET", "controllers/indexController.php?search=" + searchValue.value, true)
+            xmlhttp.send();
+        };
+
+        searchValue.onkeyup = () => {
+            checkexistShow();
+        }
 
     //top_one_badge = CSSRulePlugin.getRule("#top_show:after");
+    const allowAsync = () => {
 
-    for(let i = 0; i < resumeBtn.length; i++) {
+        let resumeBtn = document.querySelectorAll('.resume_btn');
+
+        let nodes = document.getElementById('show').childNodes;
+        console.log(nodes)
+        // Cibler les pseudo element coeur afin de pouvoir changer leurs couleurs au clique
+        let element = document.getElementById('top_show');
+        let styles = window.getComputedStyle(element,':after').getPropertyValue('content');
+        console.log(styles);
+        let top_badge = styles['display'];
+        let toggleChecker = [true, true, true, true, true, true, true, true, true, true, true, true];
+        let stars = document.querySelectorAll('.stars');
+        let plus = document.querySelectorAll('.fa-plus');
+        let titleCard = document.querySelectorAll('.showcard-title');
+        let buyBtn = document.querySelectorAll('.buy_btn');
+        let synopsis = document.querySelectorAll('.synopsis');
+
+        for(let i = 0; i < resumeBtn.length; i++) {
             resumeBtn[i].addEventListener('click', () => {
+                console.log('ok')
                     if(i == 0 && toggleChecker[i] == true) {
                         if(window.matchMedia("(max-width: 1230px)").matches) {
                             gsap.to(synopsis[i], 1, {position: "static",display: "block",color:"#F1D302",fontSize:"1.5rem"});
@@ -186,19 +220,14 @@ if(filename == "login.php" || filename == "register.php") {
                 } else if(i == 0) {
                     if(window.matchMedia("(max-width: 1230px)").matches) {
                         gsap.to("#top_show", 1, {paddingTop:"8.5rem"});
-                        gsap.to(plus[i], 1, {rotation:0});
-                        gsap.fromTo(stars[i], {display: "block", opacity: 0}, {opacity: 1, duration: 1});
-                        gsap.fromTo(titleCard[i], {display: "block", opacity: 0}, {opacity: 1, duration: 1});
-                        gsap.to(synopsis[i], 0, {display:"none"});
-                        toggleChecker[i] = true;
                     } else {
                         gsap.to("#top_show", 1, {paddingTop:"20rem"});
-                        gsap.to(plus[i], 1, {rotation:0});
-                        gsap.fromTo(stars[i], {display: "block", opacity: 0}, {opacity: 1, duration: 1});
-                        gsap.fromTo(titleCard[i], {display: "block", opacity: 0}, {opacity: 1, duration: 1});
-                        gsap.to(synopsis[i], 0, {display:"none"});
-                        toggleChecker[i] = true;
                     }
+                    gsap.to(plus[i], 1, {rotation:0});
+                    gsap.fromTo(stars[i], {display: "block", opacity: 0}, {opacity: 1, duration: 1});
+                    gsap.fromTo(titleCard[i], {display: "block", opacity: 0}, {opacity: 1, duration: 1});
+                    gsap.to(synopsis[i], 0, {display:"none"});
+                    toggleChecker[i] = true;
                     document.documentElement.style.setProperty("--dynamic-visibility", "unset");
                     gsap.to(buyBtn[i], 0, {display: "none"});
                 } else if(toggleChecker[i] == true) {
@@ -282,6 +311,9 @@ if(filename == "login.php" || filename == "register.php") {
             }
             
         });
+    }
+    
+    allowAsync();
 
     
 }
