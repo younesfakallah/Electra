@@ -52,6 +52,7 @@ body {
 
 .wrapper {
   height: 100%;
+  overflow-x: hidden;
 }
 
 ::placeholder {
@@ -611,6 +612,92 @@ input[type=text], input[type=email] {
   width: 90%;
   min-height: 70rem;
   margin: 0 !important;
+}
+#vertical_display #show #top_show {
+  grid-area: 1/1/3/4;
+  overflow: hidden;
+  padding: 20rem 0 0 0;
+  position: relative;
+}
+#vertical_display #show #top_show:after {
+  font-family: FontAwesome;
+  font-weight: 700;
+  content: "\f091";
+  position: absolute;
+  font-size: 1.3rem;
+  border-bottom-right-radius: 100vw;
+  top: 0;
+  background-color: #F1D302;
+  padding: 1rem 1rem 1rem 0.5rem;
+  box-shadow: 3px 3px 1px rgba(241, 211, 2, 0.5);
+  left: 0;
+  color: rgb(0, 0, 0);
+}
+#vertical_display #show #top_show:before {
+  cursor: pointer;
+  font-family: FontAwesome;
+  visibility: var(--dynamic-visibility);
+  content: "\f004";
+  position: absolute;
+  z-index: 1;
+  font-size: 1.5rem;
+  background-color: #F1D302;
+  padding: 0.3rem 0.3rem;
+  right: 2rem;
+  bottom: var(--dynamic-top-bottom);
+  color: var(--dynamic-color);
+  clip-path: polygon(0px 0px, 0px 0px, 100% 0px, 100% 10%, 100% 85%, 50% 100%, 50% 100%, 0% 85%, 0% 10%);
+}
+#vertical_display #show #top_show .top_showcard-content {
+  background-color: rgba(0, 0, 0, 0.52);
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 3.5rem 0 0 1rem;
+}
+#vertical_display #show #top_show .top_showcard-content .stars {
+  width: 100%;
+  display: flex;
+  font-size: 2rem;
+  color: #F1D302;
+  gap: 0.3rem;
+}
+#vertical_display #show #top_show .top_showcard-content .top_resume_btn {
+  cursor: pointer;
+  font-family: "Bebas Neue", cursive;
+  width: fit-content;
+  font-size: 2rem;
+  padding: 0.3rem 0.8rem;
+  background-color: #F1D302;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+#vertical_display #show #top_show .top_showcard-content .synopsis {
+  display: none;
+  max-height: 11rem;
+  overflow: auto;
+}
+#vertical_display #show #top_show .top_showcard-content .buy_btn {
+  display: none;
+  color: #000000;
+  text-decoration: none;
+  background-color: #F1D302;
+  padding: 0.5rem 1rem;
+  border: solid 1px #000000;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 6rem;
+  left: 4.5rem;
+}
+#vertical_display #show #top_show .top_showcard-content .showcard-title {
+  position: absolute;
+  top: 0;
+  color: #F1D302;
+  font-size: 3vw;
+  margin: 0;
+  width: 70%;
 }
 #vertical_display #show #top_show {
   grid-area: 1/1/3/4;

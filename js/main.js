@@ -147,7 +147,7 @@ if(filename == "login.php" || filename == "register.php") {
                 }, 5000);
             }
             })
-} else {
+} else if(filename == "accueil.php") {
     const searchValue = document.getElementById('search_bar');
     const showContainer = document.getElementById('show');
 
@@ -316,6 +316,12 @@ if(filename == "login.php" || filename == "register.php") {
     allowAsync();
 
     
+} else {
+    gsap.set(".litem", {x:900})
+
+    gsap.to(".spidermanbox", {x: -900, duration: 1});
+    gsap.to(".womenbox", {x: -900, duration: 1, delay: 1});
+    gsap.to(".communitybox", {x: -900, duration: 1, delay: 2});
 }
 
 

@@ -72,8 +72,10 @@
 
     <footer>
         <p>Electra 2022 - Tout droit réservé</p>
-    </footer>
+    </footer>   
+    
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
                 <script src="./js/main.js"></script>
+                
 </body>
 </html>
