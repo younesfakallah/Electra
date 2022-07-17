@@ -148,6 +148,18 @@ if(filename == "login.php" || filename == "register.php") {
             }
             })
 } else if(filename == "accueil.php") {
+
+    //Initialiation de la couleur des coeurs
+    // leurs valeurs est défini dans le sessionStorage
+    // permet de garantir à l'utilisateur la persistance visuel des données
+    for(let i  = 0; i < 12; i++) {
+        if(i == 0) {
+            document.documentElement.style.setProperty("--dynamic-color", sessionStorage.getItem("--dynamic-color"));
+        } else {
+            document.documentElement.style.setProperty(`--${i}${i}`, sessionStorage.getItem(`--${i}${i}`));
+        }
+    }
+
     const searchValue = document.getElementById('search_bar');
     const showContainer = document.getElementById('show');
 
@@ -159,7 +171,7 @@ if(filename == "login.php" || filename == "register.php") {
                     // en objets ce qui me permettra d'itérer decu
                     let showResult = JSON.parse(this.responseText);
                     console.log(showResult.name.trim());
-                    showContainer.innerHTML = `<div id="top_show" class="like_scope" style="background-image: url(${showResult.image.trim()}); background-size: cover; background-position: center;">
+                    showContainer.innerHTML = `<div id="top_show" class="like_scope result_search" style="background-image: url(${showResult.image.trim()}); background-size: cover; background-position: center;">
                                                     <div class="top_showcard-content">
                                                         <p class="showcard-title">${showResult.name.trim()}</p>
                                                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -180,18 +192,14 @@ if(filename == "login.php" || filename == "register.php") {
             checkexistShow();
         }
 
-    //top_one_badge = CSSRulePlugin.getRule("#top_show:after");
     const allowAsync = () => {
 
         let resumeBtn = document.querySelectorAll('.resume_btn');
 
         let nodes = document.getElementById('show').childNodes;
-        console.log(nodes)
         // Cibler les pseudo element coeur afin de pouvoir changer leurs couleurs au clique
         let element = document.getElementById('top_show');
         let styles = window.getComputedStyle(element,':after').getPropertyValue('content');
-        console.log(styles);
-        let top_badge = styles['display'];
         let toggleChecker = [true, true, true, true, true, true, true, true, true, true, true, true];
         let stars = document.querySelectorAll('.stars');
         let plus = document.querySelectorAll('.fa-plus');
@@ -201,7 +209,6 @@ if(filename == "login.php" || filename == "register.php") {
 
         for(let i = 0; i < resumeBtn.length; i++) {
             resumeBtn[i].addEventListener('click', () => {
-                console.log('ok')
                     if(i == 0 && toggleChecker[i] == true) {
                         if(window.matchMedia("(max-width: 1230px)").matches) {
                             gsap.to(synopsis[i], 1, {position: "static",display: "block",color:"#F1D302",fontSize:"1.5rem"});
@@ -264,18 +271,26 @@ if(filename == "login.php" || filename == "register.php") {
 
         for(let i = 0; i < resumeBtn.length; i++) {
             like_scope[i].addEventListener("click", (e) => {
-                e.stopPropagation();
+                    e.stopPropagation();
                     if(toggleLike[i] == false && i == 0) {
-                    document.documentElement.style.setProperty("--dynamic-color", "red");
-                    toggleLike[i] = true;
+                        sessionStorage.setItem(like_scope[i].childNodes[1].childNodes[1].textContent, like_scope[i].outerHTML);
+                        sessionStorage.setItem("--dynamic-color", "red")
+                        document.documentElement.style.setProperty("--dynamic-color", sessionStorage.getItem("--dynamic-color"));
+                        toggleLike[i] = true;
                     } else if(i == 0) {
-                        document.documentElement.style.setProperty("--dynamic-color", "black");
+                        sessionStorage.removeItem(like_scope[i].childNodes[1].childNodes[1].textContent);
+                        sessionStorage.setItem("--dynamic-color", "black")
+                        document.documentElement.style.setProperty("--dynamic-color", sessionStorage.getItem("--dynamic-color"));
                         toggleLike[i] = false;
                     } else if(toggleLike[i] == false) {
-                        document.documentElement.style.setProperty(`--${i}${i}`, "red");
+                        sessionStorage.setItem(like_scope[i].childNodes[1].childNodes[1].textContent, like_scope[i].outerHTML);
+                        sessionStorage.setItem(`--${i}${i}`, "red")
+                        document.documentElement.style.setProperty(`--${i}${i}`, sessionStorage.getItem(`--${i}${i}`));
                         toggleLike[i] = true;
                     } else {
-                        document.documentElement.style.setProperty(`--${i}${i}`, "black");
+                        sessionStorage.removeItem(like_scope[i].childNodes[1].childNodes[1].textContent);
+                        sessionStorage.setItem(`--${i}${i}`, "black")
+                        document.documentElement.style.setProperty(`--${i}${i}`, sessionStorage.getItem(`--${i}${i}`));
                         toggleLike[i] = false;
                     }
             })

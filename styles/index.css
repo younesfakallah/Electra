@@ -613,6 +613,9 @@ input[type=text], input[type=email] {
   min-height: 70rem;
   margin: 0 !important;
 }
+#vertical_display #show .result_search:after {
+  display: none;
+}
 #vertical_display #show #top_show {
   grid-area: 1/1/3/4;
   overflow: hidden;
